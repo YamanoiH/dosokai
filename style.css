@@ -1,0 +1,153 @@
+/* ベーススタイル */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f8ff;
+    color: #333;
+}
+
+h1 {
+    margin: 10px 0;
+    font-size: 1.7rem;
+    color: #222;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* ゲームエリア */
+#gameArea {
+    position: relative;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 400px;
+    height: 600px;
+    background-color: #ffffff;
+    border: 2px solid #000;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* 建物のスタイル */
+#tower {
+    position: absolute;
+    top: 43%;
+    left: 50%;
+    width: 230px;
+    height: 230px;
+    background: url('images/tower.png') no-repeat center center / contain;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.05);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translate(-50%, -50%) translateY(0);
+    }
+    50% {
+        transform: translate(-50%, -50%) translateY(-10px);
+    }
+}
+
+/* 上部キャラクター */
+#topCharacter {
+    position: absolute;
+    top: 10%; /* 上部キャラクターをエリアの10%位置に配置 */
+    left: 56%;
+    width: 70px;
+    height: 70px;
+    background: url('images/left_character.png') no-repeat center center / contain;
+    transform: translateX(-50%); /* 水平中央揃え */
+    z-index: 2;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* 下部キャラクター */
+#bottomCharacter {
+    position: absolute;
+    top: 90%; /* 下部キャラクターをエリアの80%位置に配置 */
+    left: 44%;
+    width: 50px;
+    height: 150px;
+    background: url('images/right_character.png') no-repeat center center / contain;
+    transform: translateX(-50%); /* 水平中央揃え */
+    z-index: 2;
+    animation: float 3s infinite ease-in-out; /* ゆらゆらアニメーション */
+}
+
+/* 復号化フォーム */
+#decryptForm {
+    position: absolute;
+    top: 50%; /* ゲームエリアの中央に配置 */
+    left: 50%;
+    transform: translate(-50%, -50%); /* 完全に中央揃え */
+    background-color: rgba(255, 255, 255, 0.8); /* 半透明な背景 */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    z-index: 10; /* ゲームエリア内で上に表示 */
+}
+
+#decryptForm input {
+    margin: 10px;
+    padding: 8px;
+    font-size: 16px;
+}
+
+#decryptForm button {
+    padding: 8px 16px;
+    font-size: 16px;
+    background-color: #ffcc00;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#decryptForm button:hover {
+    background-color: #ffdd44;
+}
+
+/* ゲームエリアに表示される画像 */
+#decryptedImage {
+    position: absolute;
+    top: 50%; /* ゲームエリアの中央に配置 */
+    left: 50%;
+    transform: translate(-50%, -50%); /* 完全に中央揃え */
+    max-width: 100%; /* ゲームエリアの幅に合わせる */
+    max-height: 100%; /* ゲームエリアの高さに合わせる */
+    object-fit: contain; /* 画像をゲームエリアに合わせて縮小 */
+    z-index: 10; /* ゲームエリア内で上に表示 */
+}
+
+/* ボタン */
+button {
+    font-size: 1rem;
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #ffcc00;
+    color: #000;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #ffdd44;
+}
+
+button:disabled {
+    background-color: #ddd;
+    cursor: not-allowed;
+}

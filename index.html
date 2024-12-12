@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>同窓会の写真です</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>ちいかわとケン</h1>
+    <div id="gameArea">
+        <div id="tower"></div>
+        <div id="topCharacter"></div>
+        <div id="bottomCharacter"></div>
+    </div>
+    <div>
+        <button id="startButton">スタート</button>
+        <button id="stopButton" disabled>ストップ</button>
+    </div>
+    <div id="result"></div>
+
+    <!-- 復号化フォーム -->
+    <div id="decryptForm" style="display: none;">
+        <h2>画像を復号化</h2>
+        <p>パスワードを入力してください。</p>
+        <form>
+            <input type="text" id="password" placeholder="あなたは誰？" required>
+            <button type="submit">復号化</button>
+        </form>
+        <p id="message"></p>
+        <div id="imageContainer" style="display: none;">
+            
+            <img id="decryptedImage" alt="復号化された画像" />
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
